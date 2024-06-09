@@ -86,13 +86,6 @@ const Login = () => {
             Forgot Password ?
           </Link>
         </div>
-
-        <button
-          className="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-          onClick={() => router.back()}
-        >
-          Go Back
-        </button>
       </div>
     </div>
   );

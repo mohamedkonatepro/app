@@ -34,14 +34,16 @@ const Home = () => {
         )}
       </div>
 
-      <div className="flex space-x-4">
-        <Link href="/dashboard" className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-600">
-          Go to Dashboard
-        </Link>
-        <Link href="/blog" className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-          Go to Blog
-        </Link>
-      </div>
+      {user ? (
+        <div className="flex space-x-4">
+          <Link href="/speech" className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-600">
+            Text to Speech
+          </Link>
+          <Link href="/speech-to-text" className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+            Go to speech to text
+          </Link>
+        </div>
+      ) : '' }
     </div>
   );
 };

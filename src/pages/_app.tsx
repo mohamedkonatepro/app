@@ -2,7 +2,7 @@ import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import "../app/globals.css";
 import { UserProvider } from '@/context/userContext';
 
- 
+
 export default function MyApp({
   Component,
   pageProps,
