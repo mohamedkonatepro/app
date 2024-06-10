@@ -15,11 +15,10 @@ const Speech = () => {
     setError(null);
 
     try {
-      const response = await axios.post('/api/speech', {
+      const response = await axios.post('/api/text-to-speech', {
         text,
       });
 
-      console.log(response)
       const timestamp = new Date().getTime();
       setAudioUrl(`${response.data.audioUrl}?t=${timestamp}`);
     } catch (error: any) {
