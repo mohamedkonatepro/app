@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const session = await getIronSession<IronSessionData>(req, res, sessionOptions);
 
   if (session.user) {
-    const response = await axios.get(`http://127.0.0.1:1337/api/users/${session.user.id}?populate=role`, {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${session.user.id}?populate=role`, {
       headers: {
         'Authorization': `Bearer ${process.env.TOKEN_STRAPI}`
       }

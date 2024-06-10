@@ -15,12 +15,9 @@ const Speech = () => {
     setError(null);
 
     try {
-      const response = await axios.post('/api/text-to-speech', {
-        text,
-      });
-
-      const timestamp = new Date().getTime();
-      setAudioUrl(`${response.data.audioUrl}?t=${timestamp}`);
+      const response = await axios.post('/api/text-to-speech', { text }, { responseType: 'blob' });
+      const url = URL.createObjectURL(new Blob([response.data], { type: 'audio/mpeg' }));
+      setAudioUrl(url);
     } catch (error: any) {
       setError('Failed to generate audio');
     } finally {

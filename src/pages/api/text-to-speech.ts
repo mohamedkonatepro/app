@@ -23,12 +23,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       input: text,
     });
 
-    const speechFile = path.resolve('./public/speech.mp3');
     const buffer = Buffer.from(await mp3.arrayBuffer());
-    await fs.promises.writeFile(speechFile, buffer);
 
-    const audioUrl = '/speech.mp3';
-    res.status(200).json({ audioUrl });
+    // Serve the file directly from memory
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Content-Disposition', 'attachment; filename="speech.mp3"');
+    res.send(buffer);
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error', error: error.message });
